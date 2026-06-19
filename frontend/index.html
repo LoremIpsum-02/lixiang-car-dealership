@@ -1,0 +1,2146 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LiXiang Auto Salon - Официальный дилер</title>
+    <link rel="icon" type="image/jpeg" href="assets/images/main/logo.png" />
+    <link rel="apple-touch-icon" href="assets/images/main/logo.png" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link href="css/style.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="li-header" style="background-color: white">
+      <div
+        class="container d-flex align-items-center justify-content-between li-nav px-0"
+      >
+        <ul class="li-menu d-none d-lg-flex">
+          <li><a href="index.html" class="active">Главная</a></li>
+          <li><a href="cars.html">Авто в наличии</a></li>
+          <li>
+            <a href="#" onclick="toggleOverlay('buyersOverlay')">Покупателям</a>
+          </li>
+          <li><a href="#" onclick="toggleOverlay('brandOverlay')">Бренд</a></li>
+        </ul>
+        <a class="li-logo mx-lg-3" href="#home" aria-label="Li Auto">
+          <img
+            src="https://static.tildacdn.com/tild3131-3032-4134-a562-626339353736/logo-ready.svg"
+            alt="Li Auto"
+          />
+        </a>
+        <!-- Мобильное меню -->
+        <div class="mobile-menu-toggle d-lg-none">
+          <button class="hamburger-btn" onclick="toggleMobileMenu()">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </button>
+        </div>
+
+        <div class="li-actions ms-auto">
+          <a href="#dealers" class="li-link me-3 d-none d-lg-inline"
+            ><i class="fa-solid fa-location-dot me-1"></i>Дилеры</a
+          >
+          <a
+            href="#"
+            class="li-link me-3 d-none d-lg-inline"
+            id="headerTestDrive"
+            ><i class="fa-solid fa-steering-wheel me-1"></i>Тест-драйв</a
+          >
+          <a href="tel:+79150577220" class="li-phone d-none d-lg-inline"
+            ><i class="fa-solid fa-phone me-2"></i>+7 (915)-057-72-20</a
+          >
+          <!-- Мобильные элементы -->
+          <a href="#dealers" class="li-link me-2 d-lg-none"
+            ><i class="fa-solid fa-location-dot"></i
+          ></a>
+          <a
+            href="#"
+            class="li-link me-2 d-lg-none"
+            id="headerTestDriveMobile"
+            onclick="showTestDriveModal()"
+            ><i class="fa-solid fa-steering-wheel"></i
+          ></a>
+          <a href="tel:+79150577220" class="li-phone d-lg-none"
+            ><i class="fa-solid fa-phone"></i
+          ></a>
+        </div>
+
+        <!-- Мобильное выпадающее меню -->
+        <div id="mobileMenu" class="mobile-menu-overlay">
+          <div class="mobile-menu-content">
+            <div class="mobile-menu-header">
+              <button class="mobile-menu-close" onclick="closeMobileMenu()">
+                <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <ul class="mobile-menu-list">
+              <li>
+                <a href="index.html" onclick="closeMobileMenu()">Главная</a>
+              </li>
+              <li>
+                <a href="cars.html" onclick="closeMobileMenu()"
+                  >Авто в наличии</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="toggleOverlay('buyersOverlay'); closeMobileMenu()"
+                  >Покупателям</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  onclick="toggleOverlay('brandOverlay'); closeMobileMenu()"
+                  >Бренд</a
+                >
+              </li>
+              <li><a href="#dealers" onclick="closeMobileMenu()">Дилеры</a></li>
+              <li>
+                <a href="#" onclick="showTestDriveModal(); closeMobileMenu()"
+                  >Тест-драйв</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dropdown меню для "Покупателям" -->
+      <div id="buyersOverlay" class="menu-overlay">
+        <div class="overlay-content">
+          <div class="overlay-header">
+            <h2>Покупателям</h2>
+            <button
+              class="overlay-close"
+              onclick="closeOverlay('buyersOverlay')"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="overlay-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="menu-section">
+                  <h3>ВЫБОР И ПОКУПКА</h3>
+                  <ul class="menu-list">
+                    <li>
+                      <a
+                        href="#"
+                        onclick="showTestDriveModal(); closeOverlay('buyersOverlay');"
+                      >
+                        <i class="fas fa-car"></i>
+                        <span>Записаться на тест-драйв</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#dealers"
+                        onclick="closeOverlay('buyersOverlay')"
+                      >
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Дилеры</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="cars.html"
+                        onclick="closeOverlay('buyersOverlay')"
+                      >
+                        <i class="fas fa-list"></i>
+                        <span>Авто в наличии</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#offer" onclick="closeOverlay('buyersOverlay')">
+                        <i class="fas fa-handshake"></i>
+                        <span>Получить предложение</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#credit" onclick="closeOverlay('buyersOverlay')">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Кредитные программы</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="menu-section">
+                  <h3>КОРПОРАТИВНЫМ КЛИЕНТАМ</h3>
+                  <ul class="menu-list">
+                    <li>
+                      <a
+                        href="#leasing"
+                        onclick="closeOverlay('buyersOverlay')"
+                      >
+                        <i class="fas fa-building"></i>
+                        <span>Лизинг</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        href="#corporate"
+                        onclick="closeOverlay('buyersOverlay')"
+                      >
+                        <i class="fas fa-users"></i>
+                        <span>Корпоративные продажи</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dropdown меню для "Бренд" -->
+      <div id="brandOverlay" class="menu-overlay">
+        <div class="overlay-content">
+          <div class="overlay-header">
+            <h2>Бренд</h2>
+            <button
+              class="overlay-close"
+              onclick="closeOverlay('brandOverlay')"
+            >
+              <i class="fas fa-times"></i>
+            </button>
+          </div>
+          <div class="overlay-body">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="menu-section">
+                  <h3>КОМПАНИЯ</h3>
+                  <ul class="menu-list">
+                    <li>
+                      <a href="#about" onclick="closeOverlay('brandOverlay')">
+                        <i class="fas fa-info-circle"></i>
+                        <span>О компании</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#partner" onclick="closeOverlay('brandOverlay')">
+                        <i class="fas fa-handshake"></i>
+                        <span>Стать партнером</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#news" onclick="closeOverlay('brandOverlay')">
+                        <i class="fas fa-newspaper"></i>
+                        <span>Новости</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#careers" onclick="closeOverlay('brandOverlay')">
+                        <i class="fas fa-briefcase"></i>
+                        <span>Карьера</span>
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="menu-section">
+                  <h3>СОЦСЕТИ И КОНТАКТЫ</h3>
+                  <div class="social-links-grid">
+                    <a href="#" class="social-link">
+                      <i class="fab fa-telegram"></i>
+                      <span>Telegram</span>
+                    </a>
+                    <a href="#" class="social-link">
+                      <i class="fab fa-youtube"></i>
+                      <span>YouTube</span>
+                    </a>
+                    <a href="#" class="social-link">
+                      <i class="fab fa-instagram"></i>
+                      <span>Instagram</span>
+                    </a>
+                    <a
+                      href="#contact"
+                      class="social-link"
+                      onclick="closeOverlay('brandOverlay')"
+                    >
+                      <i class="fas fa-envelope"></i>
+                      <span>Контакты</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section id="home" class="hero-slider">
+      <div class="hero-slider-container">
+        <!-- Слайды -->
+        <div class="hero-slides">
+          <div class="hero-slide active" data-bg="assets/images/main/Li L9.jpg">
+            <div class="hero-overlay">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-xl-9 col-lg-10 text-center text-white">
+                    <h1 class="hero-title">LiXiang L9</h1>
+                    <p class="hero-subtitle">
+                      Флагманский полноразмерный SUV<br />с мощным V6 двигателем
+                    </p>
+                    <div class="hero-price">от 9 500 000 ₽</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-slide" data-bg="assets/images/main/Li L8.jpg">
+            <div class="hero-overlay">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-xl-9 col-lg-10 text-center text-white">
+                    <h1 class="hero-title">LiXiang L8</h1>
+                    <p class="hero-subtitle">
+                      Среднеразмерный SUV<br />с полным приводом и гибридной
+                      системой
+                    </p>
+                    <div class="hero-price">от 6 500 000 ₽</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-slide" data-bg="assets/images/main/Li L7.jpg">
+            <div class="hero-overlay">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-xl-9 col-lg-10 text-center text-white">
+                    <h1 class="hero-title">LiXiang L7</h1>
+                    <p class="hero-subtitle">
+                      Компактный кроссовер<br />идеально подходит для города
+                    </p>
+                    <div class="hero-price">от 4 500 000 ₽</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-slide" data-bg="assets/images/main/Li I8.jpg">
+            <div class="hero-overlay">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <div class="col-xl-9 col-lg-10 text-center text-white">
+                    <h1 class="hero-title">LiXiang I8</h1>
+                    <p class="hero-subtitle">
+                      Инновационный гибридный спорткар<br />будущего уже сегодня
+                    </p>
+                    <div class="hero-price">от 12 000 000 ₽</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Навигация слайдера -->
+        <div class="hero-nav">
+          <button
+            class="hero-nav-btn hero-nav-prev"
+            aria-label="Предыдущий слайд"
+          >
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <button
+            class="hero-nav-btn hero-nav-next"
+            aria-label="Следующий слайд"
+          >
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Индикаторы слайдов -->
+        <div class="hero-indicators">
+          <button class="hero-indicator active" data-slide="0"></button>
+          <button class="hero-indicator" data-slide="1"></button>
+          <button class="hero-indicator" data-slide="2"></button>
+          <button class="hero-indicator" data-slide="3"></button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Cars Section -->
+    <section id="featured-cars" class="py-5">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-12 text-center">
+            <h2 class="display-5 fw-bold mb-3">Популярные модели</h2>
+            <p class="lead text-muted">
+              Выберите из наших самых востребованных автомобилей
+            </p>
+          </div>
+        </div>
+        <div class="row" id="featuredCarsGrid"></div>
+        <div class="text-center mt-5">
+          <a href="cars.html" class="btn btn-primary btn-lg px-5">
+            <i class="fa-solid fa-car me-2"></i>Смотреть все автомобили
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about"></section>
+    <section class="py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+            <h2>О LiXiang Auto Salon</h2>
+            <p class="lead">
+              Мы являемся официальным дилером LiXiang в России и предлагаем
+              полный спектр услуг по продаже и обслуживанию автомобилей
+              премиум-класса.
+            </p>
+            <ul class="list-unstyled">
+              <li>
+                <i class="fas fa-check text-success me-2"></i> Официальная
+                гарантия
+              </li>
+              <li>
+                <i class="fas fa-check text-success me-2"></i> Сервисное
+                обслуживание
+              </li>
+              <li>
+                <i class="fas fa-check text-success me-2"></i> Тест-драйвы
+              </li>
+              <li>
+                <i class="fas fa-check text-success me-2"></i> Финансирование
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="assets/images/main/salon.png"
+              class="img-fluid rounded"
+              alt="Салон LiXiang"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Дилеры -->
+    <section id="dealers" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="display-5 fw-bold">Наши дилеры</h2>
+            <p class="lead text-muted">Найдите ближайший к вам автосалон</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                  Москва Центр
+                </h5>
+                <p class="card-text">
+                  <strong>Адрес:</strong> ул. Тверская, 12<br />
+                  <strong>Телефон:</strong> +7 (915)-057-72-20<br />
+                  <strong>Режим работы:</strong> Пн-Вс: 10:00 - 22:00
+                </p>
+                <a href="#contact" class="btn btn-outline-primary">Связаться</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                  Санкт-Петербург
+                </h5>
+                <p class="card-text">
+                  <strong>Адрес:</strong> Невский пр., 85<br />
+                  <strong>Телефон:</strong> +7 (812) 555-12-34<br />
+                  <strong>Режим работы:</strong> Пн-Вс: 10:00 - 22:00
+                </p>
+                <a href="tel:+78125551234" class="btn btn-outline-primary"
+                  >Связаться</a
+                >
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <h5 class="card-title">
+                  <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                  Екатеринбург
+                </h5>
+                <p class="card-text">
+                  <strong>Адрес:</strong> ул. Ленина, 45<br />
+                  <strong>Телефон:</strong> +7 (343) 777-77-77<br />
+                  <strong>Режим работы:</strong> Пн-Вс: 10:00 - 22:00
+                </p>
+                <a href="tel:+73437777777" class="btn btn-outline-primary"
+                  >Связаться</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Получить предложение -->
+    <section id="offer" class="py-5 bg-light">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="display-5 fw-bold">Получить предложение</h2>
+            <p class="lead text-muted">Индивидуальные условия покупки</p>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="card shadow">
+              <div class="card-body p-4">
+                <form id="offerForm">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="offerName" class="form-label">Имя *</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="offerName"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="offerPhone" class="form-label"
+                        >Телефон *</label
+                      >
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="offerPhone"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="offerEmail" class="form-label">Email *</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="offerEmail"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="offerModel" class="form-label"
+                      >Интересующая модель</label
+                    >
+                    <select class="form-select" id="offerModel">
+                      <option value="">Выберите модель</option>
+                      <option value="L9">LiXiang L9</option>
+                      <option value="L8">LiXiang L8</option>
+                      <option value="L7">LiXiang L7</option>
+                      <option value="I8">LiXiang I8</option>
+                    </select>
+                  </div>
+                  <div class="mb-3">
+                    <label for="offerComment" class="form-label"
+                      >Комментарий</label
+                    >
+                    <textarea
+                      class="form-control"
+                      id="offerComment"
+                      rows="3"
+                      placeholder="Расскажите о ваших пожеланиях..."
+                    ></textarea>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary btn-lg">
+                      <i class="fas fa-paper-plane me-2"></i>Получить
+                      предложение
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Кредитные программы -->
+    <section id="credit" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="display-5 fw-bold">Кредитные программы</h2>
+            <p class="lead text-muted">Выгодные условия финансирования</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm border-primary">
+              <div class="card-header bg-primary text-white text-center">
+                <h5 class="mb-0">Стандартная программа</h5>
+              </div>
+              <div class="card-body text-center">
+                <div class="display-6 text-primary fw-bold">от 5.9%</div>
+                <p class="text-muted">годовых</p>
+                <ul class="list-unstyled">
+                  <li>
+                    <i class="fas fa-check text-success me-2"></i>Первоначальный
+                    взнос от 20%
+                  </li>
+                  <li>
+                    <i class="fas fa-check text-success me-2"></i>Срок до 7 лет
+                  </li>
+                  <li>
+                    <i class="fas fa-check text-success me-2"></i>Быстрое
+                    одобрение
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <button
+                  class="btn btn-primary w-100"
+                  onclick="showCreditModal()"
+                >
+                  Подать заявку
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-header bg-success text-white text-center">
+                <h5 class="mb-0">Льготная программа</h5>
+              </div>
+              <div class="card-body text-center">
+                <div class="display-6 text-success fw-bold">от 3.9%</div>
+                <p class="text-muted">годовых</p>
+                <ul class="list-unstyled">
+                  <li>
+                    <i class="fas fa-check text-success me-2"></i>Первоначальный
+                    взнос от 30%
+                  </li>
+                  <li>
+                    <i class="fas fa-check text-success me-2"></i>Срок до 5 лет
+                  </li>
+                  <li>
+                    <i class="fas fa-check text-success me-2"></i>Для зарплатных
+                    клиентов
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <button
+                  class="btn btn-success w-100"
+                  onclick="showCreditModal()"
+                >
+                  Подать заявку
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <div class="card h-100 shadow-sm">
+              <div class="card-header bg-warning text-dark text-center">
+                <h5 class="mb-0">Trade-in программа</h5>
+              </div>
+              <div class="card-body text-center">
+                <div class="display-6 text-warning fw-bold">0%</div>
+                <p class="text-muted">переплата</p>
+                <ul class="list-unstyled">
+                  <li>
+                    <i class="fas fa-check text-success me-2"></i>Обмен старого
+                    авто
+                  </li>
+                  <li>
+                    <i class="fas fa-check text-success me-2"></i>Доплата в
+                    кредит
+                  </li>
+                  <li>
+                    <i class="fas fa-check text-success me-2"></i>Оценка за 30
+                    минут
+                  </li>
+                </ul>
+              </div>
+              <div class="card-footer">
+                <button
+                  class="btn btn-warning w-100"
+                  onclick="app.showTestDriveModal()"
+                >
+                  Оценить авто
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Лизинг -->
+    <section id="leasing" class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h2 class="display-5 fw-bold mb-4">Лизинг для бизнеса</h2>
+            <p class="lead mb-4">
+              Выгодные условия лизинга для юридических лиц и индивидуальных
+              предпринимателей
+            </p>
+            <div class="row">
+              <div class="col-sm-6 mb-3">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-percentage text-primary me-3 fa-2x"></i>
+                  <div>
+                    <h5 class="mb-1">от 0.01%</h5>
+                    <small class="text-muted">удорожание</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 mb-3">
+                <div class="d-flex align-items-center">
+                  <i class="fas fa-calendar text-primary me-3 fa-2x"></i>
+                  <div>
+                    <h5 class="mb-1">до 5 лет</h5>
+                    <small class="text-muted">срок лизинга</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-primary btn-lg" onclick="showLeasingModal()">
+              <i class="fas fa-calculator me-2"></i>Рассчитать лизинг
+            </button>
+          </div>
+          <div class="col-lg-6">
+            <div class="card shadow">
+              <div class="card-body">
+                <h5 class="card-title">Преимущества лизинга</h5>
+                <ul class="list-unstyled">
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>НДС к зачету
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Экономия на
+                    налоге на прибыль
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Не требуется
+                    залог
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Быстрое
+                    оформление
+                  </li>
+                  <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>Возможность
+                    выкупа
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Корпоративные продажи -->
+    <section id="corporate" class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 text-center mb-5">
+            <h2 class="display-5 fw-bold">Корпоративные продажи</h2>
+            <p class="lead text-muted">
+              Специальные условия для корпоративных клиентов
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="row">
+              <div class="col-md-6 mb-4">
+                <div class="text-center">
+                  <i class="fas fa-users fa-3x text-primary mb-3"></i>
+                  <h4>Флотские продажи</h4>
+                  <p class="text-muted">
+                    Специальные цены при покупке от 5 автомобилей
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="text-center">
+                  <i class="fas fa-handshake fa-3x text-primary mb-3"></i>
+                  <h4>Индивидуальный подход</h4>
+                  <p class="text-muted">
+                    Персональный менеджер для каждого клиента
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="text-center">
+                  <i class="fas fa-tools fa-3x text-primary mb-3"></i>
+                  <h4>Сервисное обслуживание</h4>
+                  <p class="text-muted">
+                    Корпоративные программы технического обслуживания
+                  </p>
+                </div>
+              </div>
+              <div class="col-md-6 mb-4">
+                <div class="text-center">
+                  <i class="fas fa-chart-line fa-3x text-primary mb-3"></i>
+                  <h4>Отчетность</h4>
+                  <p class="text-muted">
+                    Детальная отчетность по всем операциям
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="text-center mt-4">
+              <button
+                class="btn btn-primary btn-lg"
+                onclick="showCorporateModal()"
+              >
+                <i class="fas fa-envelope me-2"></i>Связаться с отделом продаж
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Стать партнером -->
+    <section id="partner" class="py-5 bg-light">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <h2 class="display-5 fw-bold mb-4">Стать партнером</h2>
+            <p class="lead mb-4">
+              Присоединяйтесь к нашей дилерской сети и развивайте бизнес вместе
+              с LiXiang
+            </p>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-2">
+                <i class="fas fa-star text-warning me-2"></i>Эксклюзивные
+                территории
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-graduation-cap text-primary me-2"></i>Обучение
+                персонала
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-chart-line text-success me-2"></i>Маркетинговая
+                поддержка
+              </li>
+              <li class="mb-2">
+                <i class="fas fa-tools text-info me-2"></i>Техническая поддержка
+              </li>
+            </ul>
+            <button class="btn btn-primary btn-lg" onclick="showPartnerModal()">
+              <i class="fas fa-handshake me-2"></i>Стать партнером
+            </button>
+          </div>
+          <div class="col-lg-6">
+            <img
+              src="assets/images/main/Partner.png"
+              alt="Стать партнером"
+              class="img-fluid rounded"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <section id="contact" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-5">Контакты</h2>
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Свяжитесь с нами</h5>
+                <form id="contactForm">
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="name" class="form-label">Имя</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6 mb-3">
+                      <label for="phone" class="form-label">Телефон</label>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="phone"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="email"
+                      required
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="message" class="form-label">Сообщение</label>
+                    <textarea
+                      class="form-control"
+                      id="message"
+                      rows="4"
+                      required
+                    ></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">
+                    <i class="fas fa-paper-plane"></i> Отправить
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Наш адрес</h5>
+                <div
+                  id="map"
+                  class="mb-3"
+                  style="height: 200px; background: #f8f9fa; border-radius: 8px"
+                >
+                  <!-- Карта будет загружена через JavaScript -->
+                </div>
+                <p>
+                  <i class="fas fa-map-marker-alt me-2"></i> Москва, ул.
+                  Тверская, 12
+                </p>
+                <p><i class="fas fa-phone me-2"></i> +7 (915)-057-72-20</p>
+                <p><i class="fas fa-envelope me-2"></i> info@lixiang.ru</p>
+                <p>
+                  <i class="fas fa-clock me-2"></i> Пн-Пт: 9:00-21:00, Сб-Вс:
+                  10:00-20:00
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="bg-dark text-white py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 mb-4">
+            <h5 class="mb-3">LiXiang Auto Salon</h5>
+            <p class="text-muted mb-3">Официальный дилер LiXiang в России</p>
+            <div class="contact-info">
+              <p class="mb-2">
+                <i class="fas fa-phone me-2 text-white"></i>+7 (915)-057-72-20
+              </p>
+              <p class="mb-2">
+                <i class="fas fa-envelope me-2 text-white"></i>info@lixiang.ru
+              </p>
+              <p class="mb-2">
+                <i class="fas fa-clock me-2 text-white"></i>Пн-Вс: 9:00 - 21:00
+              </p>
+            </div>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <h5 class="mb-3">Навигация</h5>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <a
+                  href="cars.html"
+                  class="text-light text-decoration-none d-block py-1"
+                >
+                  <i class="fas fa-car me-2 text-white"></i>Авто в наличии
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#about"
+                  class="text-light text-decoration-none d-block py-1"
+                >
+                  <i class="fas fa-info-circle me-2 text-white"></i>О нас
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#contact"
+                  class="text-light text-decoration-none d-block py-1"
+                >
+                  <i class="fas fa-map-marker-alt me-2 text-white"></i>Контакты
+                </a>
+              </li>
+              <li class="mb-2">
+                <a
+                  href="#"
+                  class="text-light text-decoration-none d-block py-1"
+                  id="footerTestDrive"
+                >
+                  <i class="fas fa-key me-2 text-white"></i>Тест-драйв
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="col-lg-4 mb-4">
+            <h5 class="mb-3">Наш адрес</h5>
+            <div class="address-info">
+              <p class="mb-3">
+                <i class="fas fa-map-marker-alt me-2 text-white"></i>
+                Москва, ул. Тверская, 12
+              </p>
+              <p class="text-muted small mb-3">
+                <i class="fas fa-subway me-2 text-white"></i>
+                Ближайшие станции метро: Охотный Ряд, Театральная
+              </p>
+              <a
+                href="https://yandex.ru/maps/?pt=37.6176,55.7558&z=16&l=map"
+                target="_blank"
+                class="btn btn-outline-light btn-sm"
+              >
+                <i class="fas fa-external-link-alt me-2 text-white"></i>Открыть
+                карту
+              </a>
+            </div>
+          </div>
+        </div>
+        <hr class="my-4" />
+        <div class="row">
+          <div class="col-md-6">
+            <p>&copy; 2026 LiXiang Auto Salon. Все права защищены.</p>
+          </div>
+          <div class="col-md-6 text-md-end"></div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Модальное окно для деталей автомобиля -->
+    <div class="modal fade" id="carDetailsModal" tabindex="-1">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="carDetailsTitle">Детали автомобиля</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body" id="carDetailsBody">
+            <!-- Содержимое будет загружено через JavaScript -->
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Закрыть
+            </button>
+            <button type="button" class="btn btn-primary" id="testDriveBtn">
+              <i class="fas fa-car"></i> Записаться на тест-драйв
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно для заявки на тест-драйв -->
+    <div class="modal fade" id="testDriveModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Заявка на тест-драйв</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="testDriveForm">
+              <input type="hidden" id="testDriveCarId" />
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="testDriveName" class="form-label">Имя *</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="testDriveName"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="testDrivePhone" class="form-label"
+                    >Телефон *</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control form-control-sm"
+                    id="testDrivePhone"
+                    placeholder="+7 (999) 999-99-99"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="testDriveEmail" class="form-label">Email *</label>
+                <input
+                  type="email"
+                  class="form-control form-control-sm"
+                  id="testDriveEmail"
+                  placeholder="example@email.com"
+                  required
+                />
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="testDriveDate" class="form-label">Дата *</label>
+                  <input
+                    type="date"
+                    class="form-control form-control-sm"
+                    id="testDriveDate"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="testDriveTime" class="form-label">Время *</label>
+                  <select
+                    class="form-select form-select-sm"
+                    id="testDriveTime"
+                    required
+                  >
+                    <option value="">Выберите время</option>
+                    <option value="09:00">09:00</option>
+                    <option value="10:00">10:00</option>
+                    <option value="11:00">11:00</option>
+                    <option value="12:00">12:00</option>
+                    <option value="14:00">14:00</option>
+                    <option value="15:00">15:00</option>
+                    <option value="16:00">16:00</option>
+                    <option value="17:00">17:00</option>
+                    <option value="18:00">18:00</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="testDriveComment" class="form-label"
+                  >Комментарий</label
+                >
+                <textarea
+                  class="form-control form-control-sm"
+                  id="testDriveComment"
+                  rows="2"
+                  placeholder="Дополнительные пожелания..."
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer py-2">
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm"
+              data-bs-dismiss="modal"
+            >
+              Отмена
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              id="submitTestDrive"
+            >
+              <i class="fas fa-paper-plane me-1"></i>Отправить заявку
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно для кредитной заявки -->
+    <div class="modal fade" id="creditModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Заявка на кредит</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="creditForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="creditName" class="form-label">Имя *</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="creditName"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="creditPhone" class="form-label">Телефон *</label>
+                  <input
+                    type="tel"
+                    class="form-control form-control-sm"
+                    id="creditPhone"
+                    placeholder="+7 (999) 999-99-99"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="creditEmail" class="form-label">Email *</label>
+                <input
+                  type="email"
+                  class="form-control form-control-sm"
+                  id="creditEmail"
+                  placeholder="example@email.com"
+                  required
+                />
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="creditAmount" class="form-label"
+                    >Сумма кредита *</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control form-control-sm"
+                    id="creditAmount"
+                    placeholder="1000000"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="creditTerm" class="form-label"
+                    >Срок (лет) *</label
+                  >
+                  <select
+                    class="form-select form-select-sm"
+                    id="creditTerm"
+                    required
+                  >
+                    <option value="">Выберите срок</option>
+                    <option value="1">1 год</option>
+                    <option value="2">2 года</option>
+                    <option value="3">3 года</option>
+                    <option value="5">5 лет</option>
+                    <option value="7">7 лет</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="creditIncome" class="form-label"
+                  >Ежемесячный доход</label
+                >
+                <input
+                  type="number"
+                  class="form-control form-control-sm"
+                  id="creditIncome"
+                  placeholder="100000"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="creditComment" class="form-label"
+                  >Комментарий</label
+                >
+                <textarea
+                  class="form-control form-control-sm"
+                  id="creditComment"
+                  rows="2"
+                  placeholder="Дополнительная информация..."
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer py-2">
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm"
+              data-bs-dismiss="modal"
+            >
+              Отмена
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              id="submitCredit"
+            >
+              <i class="fas fa-paper-plane me-1"></i>Подать заявку
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно для лизинговой заявки -->
+    <div class="modal fade" id="leasingModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Заявка на лизинг</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="leasingForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="leasingName" class="form-label"
+                    >Контактное лицо *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="leasingName"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="leasingPhone" class="form-label">Телефон *</label>
+                  <input
+                    type="tel"
+                    class="form-control form-control-sm"
+                    id="leasingPhone"
+                    placeholder="+7 (999) 999-99-99"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="leasingEmail" class="form-label">Email *</label>
+                <input
+                  type="email"
+                  class="form-control form-control-sm"
+                  id="leasingEmail"
+                  placeholder="company@email.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="leasingCompany" class="form-label"
+                  >Название компании *</label
+                >
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="leasingCompany"
+                  required
+                />
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="leasingAmount" class="form-label"
+                    >Стоимость авто *</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control form-control-sm"
+                    id="leasingAmount"
+                    placeholder="2000000"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="leasingTerm" class="form-label"
+                    >Срок лизинга *</label
+                  >
+                  <select
+                    class="form-select form-select-sm"
+                    id="leasingTerm"
+                    required
+                  >
+                    <option value="">Выберите срок</option>
+                    <option value="12">1 год</option>
+                    <option value="24">2 года</option>
+                    <option value="36">3 года</option>
+                    <option value="48">4 года</option>
+                    <option value="60">5 лет</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="leasingComment" class="form-label"
+                  >Комментарий</label
+                >
+                <textarea
+                  class="form-control form-control-sm"
+                  id="leasingComment"
+                  rows="2"
+                  placeholder="Дополнительные условия..."
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer py-2">
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm"
+              data-bs-dismiss="modal"
+            >
+              Отмена
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              id="submitLeasing"
+            >
+              <i class="fas fa-calculator me-1"></i>Рассчитать лизинг
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно для партнерской заявки -->
+    <div class="modal fade" id="partnerModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Заявка на партнерство</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="partnerForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="partnerName" class="form-label"
+                    >Контактное лицо *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="partnerName"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="partnerPhone" class="form-label">Телефон *</label>
+                  <input
+                    type="tel"
+                    class="form-control form-control-sm"
+                    id="partnerPhone"
+                    placeholder="+7 (999) 999-99-99"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="partnerEmail" class="form-label">Email *</label>
+                <input
+                  type="email"
+                  class="form-control form-control-sm"
+                  id="partnerEmail"
+                  placeholder="partner@email.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="partnerCompany" class="form-label"
+                  >Название компании *</label
+                >
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="partnerCompany"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="partnerCity" class="form-label">Город *</label>
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="partnerCity"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="partnerExperience" class="form-label"
+                  >Опыт в автобизнесе</label
+                >
+                <select
+                  class="form-select form-select-sm"
+                  id="partnerExperience"
+                >
+                  <option value="">Выберите опыт</option>
+                  <option value="0-1">Менее 1 года</option>
+                  <option value="1-3">1-3 года</option>
+                  <option value="3-5">3-5 лет</option>
+                  <option value="5+">Более 5 лет</option>
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="partnerComment" class="form-label"
+                  >О вашем бизнесе</label
+                >
+                <textarea
+                  class="form-control form-control-sm"
+                  id="partnerComment"
+                  rows="3"
+                  placeholder="Расскажите о вашем опыте и планах..."
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer py-2">
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm"
+              data-bs-dismiss="modal"
+            >
+              Отмена
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              id="submitPartner"
+            >
+              <i class="fas fa-handshake me-1"></i>Отправить заявку
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно для резюме -->
+    <div class="modal fade" id="careerModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Отправить резюме</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="careerForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="careerName" class="form-label">ФИО *</label>
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="careerName"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="careerPhone" class="form-label">Телефон *</label>
+                  <input
+                    type="tel"
+                    class="form-control form-control-sm"
+                    id="careerPhone"
+                    placeholder="+7 (999) 999-99-99"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="careerEmail" class="form-label">Email *</label>
+                <input
+                  type="email"
+                  class="form-control form-control-sm"
+                  id="careerEmail"
+                  placeholder="candidate@email.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="careerPosition" class="form-label"
+                  >Желаемая должность *</label
+                >
+                <select
+                  class="form-select form-select-sm"
+                  id="careerPosition"
+                  required
+                >
+                  <option value="">Выберите должность</option>
+                  <option value="sales">Менеджер по продажам</option>
+                  <option value="mechanic">Автомеханик</option>
+                  <option value="manager">Менеджер</option>
+                  <option value="admin">Администратор</option>
+                  <option value="other">Другая</option>
+                </select>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="careerExperience" class="form-label"
+                    >Опыт работы</label
+                  >
+                  <select
+                    class="form-select form-select-sm"
+                    id="careerExperience"
+                  >
+                    <option value="">Выберите опыт</option>
+                    <option value="0">Без опыта</option>
+                    <option value="0-1">Менее 1 года</option>
+                    <option value="1-3">1-3 года</option>
+                    <option value="3-5">3-5 лет</option>
+                    <option value="5+">Более 5 лет</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="careerSalary" class="form-label"
+                    >Желаемая зарплата</label
+                  >
+                  <input
+                    type="number"
+                    class="form-control form-control-sm"
+                    id="careerSalary"
+                    placeholder="50000"
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="careerComment" class="form-label">О себе</label>
+                <textarea
+                  class="form-control form-control-sm"
+                  id="careerComment"
+                  rows="3"
+                  placeholder="Расскажите о своем опыте и навыках..."
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer py-2">
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm"
+              data-bs-dismiss="modal"
+            >
+              Отмена
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              id="submitCareer"
+            >
+              <i class="fas fa-file-alt me-1"></i>Отправить резюме
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Модальное окно для связи с отделом продаж -->
+    <div class="modal fade" id="corporateModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Связаться с отделом продаж</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <form id="corporateForm">
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="corporateName" class="form-label"
+                    >Контактное лицо *</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control form-control-sm"
+                    id="corporateName"
+                    required
+                  />
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="corporatePhone" class="form-label"
+                    >Телефон *</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control form-control-sm"
+                    id="corporatePhone"
+                    placeholder="+7 (999) 999-99-99"
+                    required
+                  />
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="corporateEmail" class="form-label">Email *</label>
+                <input
+                  type="email"
+                  class="form-control form-control-sm"
+                  id="corporateEmail"
+                  placeholder="company@email.com"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="corporateCompany" class="form-label"
+                  >Название компании *</label
+                >
+                <input
+                  type="text"
+                  class="form-control form-control-sm"
+                  id="corporateCompany"
+                  required
+                />
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <label for="corporateFleetSize" class="form-label"
+                    >Количество автомобилей</label
+                  >
+                  <select
+                    class="form-select form-select-sm"
+                    id="corporateFleetSize"
+                  >
+                    <option value="">Выберите количество</option>
+                    <option value="1-5">1-5 автомобилей</option>
+                    <option value="6-10">6-10 автомобилей</option>
+                    <option value="11-20">11-20 автомобилей</option>
+                    <option value="21-50">21-50 автомобилей</option>
+                    <option value="50+">Более 50 автомобилей</option>
+                  </select>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <label for="corporateBudget" class="form-label">Бюджет</label>
+                  <select
+                    class="form-select form-select-sm"
+                    id="corporateBudget"
+                  >
+                    <option value="">Выберите бюджет</option>
+                    <option value="up-to-5m">До 5 млн ₽</option>
+                    <option value="5-10m">5-10 млн ₽</option>
+                    <option value="10-20m">10-20 млн ₽</option>
+                    <option value="20m+">Более 20 млн ₽</option>
+                  </select>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="corporateComment" class="form-label"
+                  >Комментарий</label
+                >
+                <textarea
+                  class="form-control form-control-sm"
+                  id="corporateComment"
+                  rows="3"
+                  placeholder="Расскажите о ваших требованиях к корпоративному парку..."
+                ></textarea>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer py-2">
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm"
+              data-bs-dismiss="modal"
+            >
+              Отмена
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary btn-sm"
+              id="submitCorporate"
+            >
+              <i class="fas fa-envelope me-1"></i>Отправить заявку
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Alert Container -->
+    <div
+      id="alertContainer"
+      class="position-fixed top-0 end-0 p-3"
+      style="z-index: 9999"
+    ></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script
+      src="https://api-maps.yandex.ru/2.1/?apikey=your_yandex_maps_api_key&lang=ru_RU"
+      type="text/javascript"
+    ></script>
+    <script src="js/slider.js"></script>
+    <script src="js/maps.js"></script>
+    <script src="js/overlay-menu.js"></script>
+    <script src="js/app.js"></script>
+
+    <script>
+      // Функции для открытия модальных окон
+      function showCreditModal() {
+        const modal = new bootstrap.Modal(
+          document.getElementById("creditModal")
+        );
+        modal.show();
+      }
+
+      function showLeasingModal() {
+        const modal = new bootstrap.Modal(
+          document.getElementById("leasingModal")
+        );
+        modal.show();
+      }
+
+      function showPartnerModal() {
+        const modal = new bootstrap.Modal(
+          document.getElementById("partnerModal")
+        );
+        modal.show();
+      }
+
+      function showCareerModal() {
+        const modal = new bootstrap.Modal(
+          document.getElementById("careerModal")
+        );
+        modal.show();
+      }
+
+      function showCorporateModal() {
+        const modal = new bootstrap.Modal(
+          document.getElementById("corporateModal")
+        );
+        modal.show();
+      }
+
+      function showTestDriveModal() {
+        const modal = new bootstrap.Modal(
+          document.getElementById("testDriveModal")
+        );
+        modal.show();
+      }
+
+      // Мобильное меню
+      function toggleMobileMenu() {
+        const overlay = document.getElementById("mobileMenu");
+        const hamburger = document.querySelector(".hamburger-btn");
+
+        if (overlay.classList.contains("active")) {
+          closeMobileMenu();
+        } else {
+          overlay.classList.add("active");
+          hamburger.classList.add("active");
+          document.body.style.overflow = "hidden";
+        }
+      }
+
+      function closeMobileMenu() {
+        const overlay = document.getElementById("mobileMenu");
+        const hamburger = document.querySelector(".hamburger-btn");
+
+        overlay.classList.remove("active");
+        hamburger.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Закрытие мобильного меню при клике вне его
+      document.addEventListener("click", function (event) {
+        const overlay = document.getElementById("mobileMenu");
+        const hamburger = document.querySelector(".hamburger-btn");
+
+        if (
+          overlay.classList.contains("active") &&
+          !overlay.contains(event.target) &&
+          !hamburger.contains(event.target)
+        ) {
+          closeMobileMenu();
+        }
+      });
+
+      const apiBaseUrl = "http://localhost:3000/api";
+
+      function showNotification(message, type = "success") {
+        const alertContainer = document.getElementById("alertContainer");
+        const alertId = "alert-" + Date.now();
+
+        const alertHtml = `
+          <div id="${alertId}" class="alert alert-${type} alert-dismissible fade show shadow" role="alert" style="min-width: 300px;">
+            <i class="fas fa-${
+              type === "success" ? "check-circle" : "exclamation-circle"
+            } me-2"></i>
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+          </div>
+        `;
+
+        alertContainer.insertAdjacentHTML("beforeend", alertHtml);
+
+        setTimeout(() => {
+          const alertElement = document.getElementById(alertId);
+          if (alertElement) {
+            alertElement.remove();
+          }
+        }, 5000);
+      }
+
+      async function submitRequest(type, formData) {
+        try {
+          const response = await fetch(`${apiBaseUrl}/requests`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ type, ...formData }),
+          });
+
+          if (response.ok) {
+            showNotification(
+              "✓ Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.",
+              "success"
+            );
+            const modal = bootstrap.Modal.getInstance(
+              document.getElementById(
+                type === "credit"
+                  ? "creditModal"
+                  : type === "leasing"
+                  ? "leasingModal"
+                  : type === "partner"
+                  ? "partnerModal"
+                  : type === "career"
+                  ? "careerModal"
+                  : type === "corporate"
+                  ? "corporateModal"
+                  : "offerModal"
+              )
+            );
+            if (modal) modal.hide();
+            return true;
+          } else {
+            const error = await response.json();
+            showNotification(
+              error.message || "Ошибка отправки заявки",
+              "danger"
+            );
+            return false;
+          }
+        } catch (error) {
+          console.error("Ошибка:", error);
+          showNotification("Ошибка соединения с сервером", "danger");
+          return false;
+        }
+      }
+
+      document
+        .getElementById("submitCredit")
+        .addEventListener("click", function () {
+          const creditNameEl = document.getElementById("creditName");
+          const creditPhoneEl = document.getElementById("creditPhone");
+          const creditEmailEl = document.getElementById("creditEmail");
+          const creditAmountEl = document.getElementById("creditAmount");
+          const creditTermEl = document.getElementById("creditTerm");
+          const creditIncomeEl = document.getElementById("creditIncome");
+          const creditCommentEl = document.getElementById("creditComment");
+
+          if (!creditNameEl || !creditPhoneEl || !creditEmailEl) {
+            showNotification("Ошибка: форма не найдена", "danger");
+            return;
+          }
+
+          const data = {
+            name: creditNameEl.value,
+            phone: creditPhoneEl.value,
+            email: creditEmailEl.value,
+            data: {
+              amount: creditAmountEl?.value || "",
+              "Срок (лет)": creditTermEl?.value || "",
+              "Ежемесячный доход": creditIncomeEl?.value || "",
+            },
+            message: creditCommentEl?.value || "",
+          };
+          if (data.name && data.phone && data.email) {
+            submitRequest("credit", data);
+          } else {
+            showNotification(
+              "Пожалуйста, заполните все обязательные поля",
+              "danger"
+            );
+          }
+        });
+
+      document
+        .getElementById("submitLeasing")
+        .addEventListener("click", function () {
+          const leasingNameEl = document.getElementById("leasingName");
+          const leasingPhoneEl = document.getElementById("leasingPhone");
+          const leasingEmailEl = document.getElementById("leasingEmail");
+          const leasingCompanyEl = document.getElementById("leasingCompany");
+          const leasingAmountEl = document.getElementById("leasingAmount");
+          const leasingTermEl = document.getElementById("leasingTerm");
+          const leasingCommentEl = document.getElementById("leasingComment");
+
+          if (!leasingNameEl || !leasingPhoneEl || !leasingEmailEl) {
+            showNotification("Ошибка: форма не найдена", "danger");
+            return;
+          }
+
+          const data = {
+            name: leasingNameEl.value,
+            phone: leasingPhoneEl.value,
+            email: leasingEmailEl.value,
+            data: {
+              "Название компании": leasingCompanyEl?.value || "",
+              "Стоимость авто": leasingAmountEl?.value || "",
+              "Срок лизинга": leasingTermEl?.value || "",
+            },
+            message: leasingCommentEl?.value || "",
+          };
+          if (data.name && data.phone && data.email) {
+            submitRequest("leasing", data);
+          } else {
+            showNotification(
+              "Пожалуйста, заполните все обязательные поля",
+              "danger"
+            );
+          }
+        });
+
+      document
+        .getElementById("submitPartner")
+        .addEventListener("click", function () {
+          const data = {
+            name: document.getElementById("partnerName").value,
+            phone: document.getElementById("partnerPhone").value,
+            email: document.getElementById("partnerEmail").value,
+            data: {
+              company: document.getElementById("partnerCompany").value,
+              city: document.getElementById("partnerCity").value,
+              experience: document.getElementById("partnerExperience").value,
+            },
+            message: document.getElementById("partnerComment")?.value || "",
+          };
+          if (data.name && data.phone && data.email) {
+            submitRequest("partner", data);
+          } else {
+            showNotification(
+              "Пожалуйста, заполните все обязательные поля",
+              "danger"
+            );
+          }
+        });
+
+      document
+        .getElementById("submitCareer")
+        .addEventListener("click", function () {
+          const data = {
+            name: document.getElementById("careerName").value,
+            phone: document.getElementById("careerPhone").value,
+            email: document.getElementById("careerEmail").value,
+            data: {
+              position: document.getElementById("careerPosition").value,
+              experience: document.getElementById("careerExperience").value,
+            },
+            message: document.getElementById("careerComment")?.value || "",
+          };
+          if (data.name && data.phone && data.email) {
+            submitRequest("career", data);
+          } else {
+            showNotification(
+              "Пожалуйста, заполните все обязательные поля",
+              "danger"
+            );
+          }
+        });
+
+      document
+        .getElementById("submitCorporate")
+        .addEventListener("click", function () {
+          const corporateNameEl = document.getElementById("corporateName");
+          const corporatePhoneEl = document.getElementById("corporatePhone");
+          const corporateEmailEl = document.getElementById("corporateEmail");
+          const corporateCompanyEl =
+            document.getElementById("corporateCompany");
+          const corporateFleetSizeEl =
+            document.getElementById("corporateFleetSize");
+          const corporateBudgetEl = document.getElementById("corporateBudget");
+          const corporateCommentEl =
+            document.getElementById("corporateComment");
+
+          if (!corporateNameEl || !corporatePhoneEl || !corporateEmailEl) {
+            showNotification("Ошибка: форма не найдена", "danger");
+            return;
+          }
+
+          const data = {
+            name: corporateNameEl.value,
+            phone: corporatePhoneEl.value,
+            email: corporateEmailEl.value,
+            data: {
+              "Название компании": corporateCompanyEl?.value || "",
+              "Количество автомобилей": corporateFleetSizeEl?.value || "",
+              Бюджет: corporateBudgetEl?.value || "",
+            },
+            message: corporateCommentEl?.value || "",
+          };
+          if (data.name && data.phone && data.email) {
+            submitRequest("corporate", data);
+          } else {
+            showNotification(
+              "Пожалуйста, заполните все обязательные поля",
+              "danger"
+            );
+          }
+        });
+
+      document
+        .getElementById("offerForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const data = {
+            name: document.getElementById("offerName").value,
+            phone: document.getElementById("offerPhone").value,
+            email: document.getElementById("offerEmail").value,
+            data: {
+              model: document.getElementById("offerModel").value,
+            },
+            message: document.getElementById("offerComment")?.value || "",
+          };
+          if (data.name && data.phone && data.email) {
+            submitRequest("offer", data);
+            document.getElementById("offerForm").reset();
+          } else {
+            showNotification(
+              "Пожалуйста, заполните все обязательные поля",
+              "danger"
+            );
+          }
+        });
+    </script>
+  </body>
+</html>
